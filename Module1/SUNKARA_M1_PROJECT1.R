@@ -25,7 +25,27 @@ Sales
 Sales[3]=16
 Sales
 
-#8.Create a vector <names> with elements Tom, Dick, Harry (pg 22)
+#8.Create a vector <names> with elements Tom, Dick, Harry
 Names=c("Tom","Dick","Harry")
 
-#9.Create a 5 row and 2 column matrix of 10 integers (pg 23)
+#9.Create a 5 row and 2 column matrix of 10 integers
+Matrix1= matrix(1:10, nrow=5, ncol=2)
+Matrix1
+
+#10.Create a data frame <icSales> with sales and temp attributes
+icSales = data.frame(Sales,Temperature)
+
+#11.Display the data frame structure of icScales
+str(icSales)
+
+#12.Display a summary of the icScales data frame
+summary(icSales)
+
+#13.Import the dataset Student.csv (pgs 34-37) 
+install.packages("data.table")
+library(data.table)
+students = fread("Student.csv")
+students
+
+#14.Display only the variable names of the Student.csv dataset 
+variable.names(students)
