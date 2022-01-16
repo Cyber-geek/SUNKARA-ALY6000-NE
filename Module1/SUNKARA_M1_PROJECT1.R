@@ -27,6 +27,7 @@ Sales
 
 #8.Create a vector <names> with elements Tom, Dick, Harry
 Names=c("Tom","Dick","Harry")
+Names
 
 #9.Create a 5 row and 2 column matrix of 10 integers
 Matrix1= matrix(1:10, nrow=5, ncol=2)
