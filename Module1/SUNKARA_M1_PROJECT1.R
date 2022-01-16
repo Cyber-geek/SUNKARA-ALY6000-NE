@@ -41,7 +41,7 @@ str(icSales)
 #12.Display a summary of the icScales data frame
 summary(icSales)
 
-#13.Import the dataset Student.csv (pgs 34-37) 
+#13.Import the dataset Student.csv
 install.packages("data.table")
 library(data.table)
 students = fread("Student.csv")
