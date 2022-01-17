@@ -18,7 +18,7 @@ plot(Sales,Temperature)
 mean(Temperature)
 
 #6.Delete the 3rd element from the sales vector
-Sales[-3]
+Sales = Sales[-3]
 Sales
 
 #7.Insert 16 as the 3rd element into the sales vector
