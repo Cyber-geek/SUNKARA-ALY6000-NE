@@ -22,7 +22,7 @@ Sales = Sales[-3]
 Sales
 
 #7.Insert 16 as the 3rd element into the sales vector
-Sales[3]=16
+Sales = append(Sales,16,2)
 Sales
 
 #8.Create a vector <names> with elements Tom, Dick, Harry
@@ -35,6 +35,7 @@ Matrix1
 
 #10.Create a data frame <icSales> with sales and temp attributes
 icSales = data.frame(Sales,Temperature)
+icSales
 
 #11.Display the data frame structure of icScales
 str(icSales)
