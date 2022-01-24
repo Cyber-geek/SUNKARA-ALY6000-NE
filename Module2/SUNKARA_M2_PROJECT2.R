@@ -41,6 +41,7 @@ attach(df)
 plot(age ~ fl, main="Plot 1: Harrison Lake Trout", xlab="Fork Length (mm)", ylab="Age (yrs)",
      xlim=xaxis, ylim=yaxis, pch=20)
 
+
 # Plot 2: Harrison Fish Age Distribution using Histogram.
 hist(df$age, main="Plot 2: Harrison Fish Age Distribution", xlab="Age (yrs)", ylab="Frequency",
      xlim=yaxis, col="cadetblue", col.main="cadetblue")
