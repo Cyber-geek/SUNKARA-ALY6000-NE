@@ -18,31 +18,30 @@ library(plotrix)
 library(ggplot2)
 library(moments)
 
-# Load the dataset from FSAData library
+# Loaded the BullTroutRML2 dataset and inserted into a dataframe
 df <- FSAdata::BullTroutRML2
 
-# See the first and last 3 rows of the initial import
+# Print the first and last 3 records from the BullTroutRMS2 dataset 
 headtail(df, 3)
 
-# Filtering the dataset, but keeping the same variable name
+# Remove all records except those from Harrison Lake. Note: filterD() is deprecated, so followed data frame filter process using $.
 df <- df[df$lake == "Harrison",]
 
-# First and last 5 rows, along with a basic structure and summary overview
+# Displaying First and last 5 rows along with Data Frame structure and summary overview
 headtail(df, 5)
 str(df)
 summary(df)
 
-# Defining objects for xaxis and yaxis :
+# Defining xaxis and yaxis for plotting graphs:
 xaxis <- c(0,500)
 yaxis <- c(0,15)
 
-# Attaching the data frame will make the following plots much easier. Below, Plot 1.
+# Plot 1: Harrison Lake Trout Scatterplot
 attach(df)
 plot(age ~ fl, main="Plot 1: Harrison Lake Trout", xlab="Fork Length (mm)", ylab="Age (yrs)",
      xlim=xaxis, ylim=yaxis, pch=20)
 
-# Plot 2: Histogram. Note we had to use the ylim vector for xlim due to this being a histogram (examination of one variable, the “X” variable in this case) vs. a scatter plot (X and Y).
-
+# Plot 2: Harrison Fish Age Distribution using Histogram.
 hist(df$age, main="Plot 2: Harrison Fish Age Distribution", xlab="Age (yrs)", ylab="Frequency",
      xlim=yaxis, col="cadetblue", col.main="cadetblue")
 
@@ -51,8 +50,7 @@ cpf <- colorRampPalette(colors=c("lightgreen", "darkgreen"), space="Lab")
 num_levels <- nlevels(df$era)
 df_era_colors <- cpf(num_levels)
 
-# Plot 3: Overdense Plot which uses aforementioned shades of green, legend added for clarity
-
+# Plot 3: Overdense Plot which uses before mentioned shades of green, legend added for clarity
 plot(age ~ fl, main="Plot 3: Harrison Density Shaded by Era", xlab="Fork Length (mm)",
      ylab="Age (yrs)", xlim=xaxis, ylim=yaxis, pch=20, col=df_era_colors)
 legend(x = "topleft", legend = paste(levels(df$era)), col = df_era_colors, pch = 20)
@@ -71,7 +69,7 @@ cols <- c("red", "gray60")
 tmp$era <- as.numeric(tmp$era)
 
 # Initialize colors with tmp$era
-initialize(col, tmp$era)
+initialize(cols, tmp$era)
 
 # Plot 4
 plot(age ~ fl, xlab="Fork Length (mm)", ylab="Age (yrs)", pch=pchs, col=cols, xlim=xaxis,
