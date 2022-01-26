@@ -46,12 +46,11 @@ plot(age ~ fl, main="Plot 1: Harrison Lake Trout", xlab="Fork Length (mm)", ylab
 hist(df$age, main="Plot 2: Harrison Fish Age Distribution", xlab="Age (yrs)", ylab="Frequency",
      xlim=yaxis, col="cadetblue", col.main="cadetblue")
 
+# Plot 3: Overdense Plot which uses shades of green defined by Color Pallete, added legend for clarity
 # Using R’s colorRampPalette to map a color to each era
-cpf <- colorRampPalette(colors=c("lightgreen", "darkgreen"), space="Lab")
+crp <- colorRampPalette(colors=c("lightgreen", "darkgreen"), space="Lab")
 num_levels <- nlevels(df$era)
-df_era_colors <- cpf(num_levels)
-
-# Plot 3: Overdense Plot which uses before mentioned shades of green, legend added for clarity
+df_era_colors <- crp(num_levels)
 plot(age ~ fl, main="Plot 3: Harrison Density Shaded by Era", xlab="Fork Length (mm)",
      ylab="Age (yrs)", xlim=xaxis, ylim=yaxis, pch=20, col=df_era_colors)
 legend(x = "topleft", legend = paste(levels(df$era)), col = df_era_colors, pch = 20)
@@ -72,7 +71,7 @@ tmp$era <- as.numeric(tmp$era)
 # Initialize colors with tmp$era
 initialize(cols, tmp$era)
 
-# Plot 4
+# Plot 4: Symbol & Color by Era
 plot(age ~ fl, xlab="Fork Length (mm)", ylab="Age (yrs)", pch=pchs, col=cols, xlim=xaxis,
      ylim=yaxis, main="Plot 4: Symbol & Color by Era")
 
@@ -93,5 +92,5 @@ newera <- df[df$era=='1997-01',]
 summary(oldera)
 summary(newera)
 
-# Just for good measure, detaching the data frame
+# Detaching data frame
 detach(df)
