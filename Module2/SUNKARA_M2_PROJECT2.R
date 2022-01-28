@@ -21,13 +21,13 @@ library(moments)
 
 # Loaded the BullTroutRML2 dataset and inserted into a dataframe
 df <- FSAdata::BullTroutRML2
-
+str(df)
 # Print the first and last 3 records from the BullTroutRMS2 dataset 
 headtail(df, 3)
 
 # Remove all records except those from Harrison Lake.
 df <- filterD(df,lake == 'Harrison')
-df
+
 
 # Displaying First and last 5 rows along with Data Frame structure and summary overview
 headtail(df, 5)
@@ -63,7 +63,7 @@ tmp <- headtail(df,3)
 # Display “era” values in “tmp”
 print(tmp$era)
 
-# Vectors for “pch” and “col”
+# Vectors for “pch” and “cols”
 pchs <- c("+","x")
 cols <- c("red", "gray60")
 
