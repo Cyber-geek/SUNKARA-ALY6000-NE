@@ -1,6 +1,7 @@
-# Printing the top of the document
+# Printing the Name on top of the document
 print("Plotting Basics: SUNKARA")
 
+#Installation of Packages
 install.packages("FSA")
 install.packages("FSAdata")
 install.packages("magrittr")
@@ -24,8 +25,9 @@ df <- FSAdata::BullTroutRML2
 # Print the first and last 3 records from the BullTroutRMS2 dataset 
 headtail(df, 3)
 
-# Remove all records except those from Harrison Lake. Note: filterD() is deprecated, so followed data frame filter process using $.
-df <- df[df$lake == "Harrison",]
+# Remove all records except those from Harrison Lake.
+df <- filterD(df,lake == 'Harrison')
+df
 
 # Displaying First and last 5 rows along with Data Frame structure and summary overview
 headtail(df, 5)
@@ -55,7 +57,7 @@ plot(age ~ fl, main="Plot 3: Harrison Density Shaded by Era", xlab="Fork Length 
      ylab="Age (yrs)", xlim=xaxis, ylim=yaxis, pch=20, col=df_era_colors)
 legend(x = "topleft", legend = paste(levels(df$era)), col = df_era_colors, pch = 20)
 
-# Create “tmp” with the first and last 3 records of (filtered) dataframe.
+# Create “tmp” with the first and last 3 records of (filtered) data frame.
 tmp <- headtail(df,3)
 
 # Display “era” values in “tmp”
