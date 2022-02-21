@@ -5,6 +5,6 @@ This repo contains the code for analysis of Netflix data which was retreived fro
 in which TV Shows/ Movies were added in Netflix were between 2019 to 2021
 
 Process Included:
-Data Cleaning
-Descriptive Analysis
+Data Cleaning,
+Descriptive Analysis &
 Exploratory Analysis
